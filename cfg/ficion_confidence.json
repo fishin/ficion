@@ -1,0 +1,55 @@
+{
+    "pack": {},
+    "servers": [
+        {
+            "port": 8080,
+            "options": {
+                "labels": [
+                    "api",
+                    "http"
+                ],
+                "timeout": {
+                    "server": 60000
+                },
+                "load": {
+                    "maxHeapUsedBytes": 1073741824,
+                    "maxRssBytes": 2147483648,
+                    "sampleInterval": 1000,
+                    "maxEventLoopDelay": 5000
+                }
+            }
+        },
+        {
+            "port": 8443,
+            "options": {
+                "labels": [
+                    "api",
+                    "https"
+                ],
+                "timeout": {
+                    "server": 60000
+                },
+                "load": {
+                    "maxHeapUsedBytes": 1073741824,
+                    "maxRssBytes": 2147483648,
+                    "sampleInterval": 1000,
+                    "maxEventLoopDelay": 5000
+                }
+            }
+        },
+        {
+            "port": 8999,
+            "options": {
+                "labels": [
+                    "admin"
+                ],
+                "timeout": {
+                    "server": 60000
+                }
+            }
+        }
+    ],
+    "plugins": {
+        "node-ci": {}
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "ficion",
+  "version": "0.0.0",
+  "description": "ficion ======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fishin/ficion"
+  },
+  "author": "Lloyd Benson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fishin/ficion/issues"
+  },
+  "homepage": "https://github.com/fishin/ficion",
+  "dependencies": {
+    "confidence": "1.x.x",
+    "hapi": "6.x.x",
+    "node-ci": "git+ssh://git@github.com:lloydbenson/node-ci.git"
+  }
+}
