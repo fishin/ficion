@@ -19,6 +19,8 @@
   "dependencies": {
     "confidence": "1.x.x",
     "hapi": "6.x.x",
+    "joi": "4.x.x",
+    "lout": "5.x.x",
     "node-ci": "git+ssh://git@github.com:lloydbenson/node-ci.git"
   }
 }
