@@ -18,9 +18,10 @@
   "homepage": "https://github.com/fishin/ficion",
   "dependencies": {
     "confidence": "1.x.x",
+    "good": "git+ssh://git@github.com:hapijs/good.git",
     "hapi": "6.x.x",
     "joi": "4.x.x",
     "lout": "5.x.x",
-    "node-ci": "git+ssh://git@github.com:lloydbenson/node-ci.git"
+    "tacklebox": "git+ssh://git@github.com:fishin/tacklebox.git"
   }
 }

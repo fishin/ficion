@@ -50,7 +50,21 @@
         }
     ],
     "plugins": {
+        "good": {
+            "subscribers": {
+                "console": ["request", "ops", "log", "error"],
+                "/tmp/ficion/log/request.log": ["request"],
+                "/tmp/ficion/log/ops.log": ["ops"],
+                "/tmp/ficion/log/log.log": ["log"],
+                "/tmp/ficion/log/error.log": ["error"]
+            },
+            "extendedRequests": true,
+            "logPid": true,
+            "logRequestHeaders": true,
+            "logRequestPayload": true,
+            "logResponsePayload": true
+        },
         "lout": {},
-        "node-ci": {}
+        "tacklebox": {}
     }
 }
