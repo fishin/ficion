@@ -65,6 +65,7 @@
             "logResponsePayload": true
         },
         "lout": {},
+        "reel": {},
         "tacklebox": {}
     }
 }
