@@ -25,6 +25,7 @@
     "joi": "4.x.x",
     "lout": "5.x.x",
     "node-uuid": "1.4.x",
+    "angler": "git+ssh://git@github.com:fishin/angler.git",
     "reel": "git+ssh://git@github.com:fishin/reel.git",
     "tacklebox": "git+ssh://git@github.com:fishin/tacklebox.git"
   }
