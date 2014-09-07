@@ -1,4 +1,4 @@
 ficion
 ======
 
-top level server with all modules
+Fast Intelligent Continous Integration For Node
