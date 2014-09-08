@@ -64,9 +64,8 @@
             "logRequestPayload": true,
             "logResponsePayload": true
         },
-        "angler": {},
+        "gills": {},
         "lout": {},
-        "reel": {},
         "tacklebox": {}
     }
 }
