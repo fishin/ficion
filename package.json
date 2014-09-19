@@ -25,7 +25,6 @@
     "joi": "4.x.x",
     "lout": "5.x.x",
     "node-uuid": "1.4.x",
-    "gills": "git+https://github.com/fishin/gills.git",
-    "tacklebox": "git+https://github.com/fishin/tacklebox.git"
+    "gills": "git+https://github.com/fishin/gills.git"
   }
 }
