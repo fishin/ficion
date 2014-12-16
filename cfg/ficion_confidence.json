@@ -2,32 +2,44 @@
     "connections": [
         {
             "port": 8080,
-             "labels": [
-                 "api",
-                 "http"
-             ]
-        },
-        {
-            "port": 8443,
+            "routes": {
+                "timeout": {
+                    "server": 10000
+                }
+            },
+            "load": {
+                "maxHeapUsedBytes": 1073741824,
+                "maxRssBytes": 2147483648,
+                "maxEventLoopDelay": 5000
+            },
             "labels": [
                 "api",
-                "https"
+                "http"
             ]
         },
         {
             "port": 8999,
+            "routes": {
+                "timeout": {
+                    "server": 10000
+                }
+            },
+            "load": {
+                "maxHeapUsedBytes": 1073741824,
+                "maxRssBytes": 2147483648,
+                "maxEventLoopDelay": 5000
+            },
             "labels": [
                 "admin"
             ]
         }
     ],
+    "server": {
+        "load": {
+            "sampleInterval": 1000
+        }
+    },
     "plugins": {
-        "heavy": {
-            "maxHeapUsedBytes": 1073741824,
-            "maxRssBytes": 2147483648,
-            "sampleInterval": 1000,
-            "maxEventLoopDelay": 5000
-        },
         "good": {
             "reporters": [{
                 "reporter": "good-console",
