@@ -1,1 +1,1 @@
-node_modules/.bin/hapi -c cfg/ficion_confidence.json
+node_modules/.bin/rejoice -c cfg/ficion_confidence.json

@@ -1,68 +1,64 @@
 {
-    "pack": {},
-    "servers": [
+    "connections": [
         {
             "port": 8080,
-            "options": {
-                "labels": [
-                    "api",
-                    "http"
-                ],
-                "timeout": {
-                    "server": 60000
-                },
-                "load": {
-                    "maxHeapUsedBytes": 1073741824,
-                    "maxRssBytes": 2147483648,
-                    "sampleInterval": 1000,
-                    "maxEventLoopDelay": 5000
-                }
-            }
+             "labels": [
+                 "api",
+                 "http"
+             ]
         },
         {
             "port": 8443,
-            "options": {
-                "labels": [
-                    "api",
-                    "https"
-                ],
-                "timeout": {
-                    "server": 60000
-                },
-                "load": {
-                    "maxHeapUsedBytes": 1073741824,
-                    "maxRssBytes": 2147483648,
-                    "sampleInterval": 1000,
-                    "maxEventLoopDelay": 5000
-                }
-            }
+            "labels": [
+                "api",
+                "https"
+            ]
         },
         {
             "port": 8999,
-            "options": {
-                "labels": [
-                    "admin"
-                ],
-                "timeout": {
-                    "server": 60000
-                }
-            }
+            "labels": [
+                "admin"
+            ]
         }
     ],
     "plugins": {
+        "heavy": {
+            "maxHeapUsedBytes": 1073741824,
+            "maxRssBytes": 2147483648,
+            "sampleInterval": 1000,
+            "maxEventLoopDelay": 5000
+        },
         "good": {
-            "subscribers": {
-                "console": ["request", "ops", "log", "error"],
-                "/tmp/ficion/log/request.log": ["request"],
-                "/tmp/ficion/log/ops.log": ["ops"],
-                "/tmp/ficion/log/log.log": ["log"],
-                "/tmp/ficion/log/error.log": ["error"]
+            "reporters": [{
+                "reporter": "good-console",
+                "args": [{ "request": "*", "ops": "*", "log": "*", "error": "*" }]
             },
-            "extendedRequests": true,
-            "logPid": true,
-            "logRequestHeaders": true,
-            "logRequestPayload": true,
-            "logResponsePayload": true
+            {
+                "reporter": "good-file",
+                "args": [
+                    "/tmp/ficion/log/", { "request": "*" }, { "fileName": "request.log" }
+                ]
+            },
+            {
+                "reporter": "good-file",
+                "args": [
+                    "/tmp/ficion/log/", { "ops": "*" }, { "fileName": "ops.log" }
+                ]
+            },
+            {
+                "reporter": "good-file",
+                "args": [
+                    "/tmp/ficion/log/", { "log": "*" }, { "fileName": "log.log" }
+                ]
+            },
+            {
+                "reporter": "good-file",
+                "args": [
+                    "/tmp/ficion/log/", { "error": "*" }, { "fileName": "error.log" }
+                ]
+            }],
+            "opsInterval": 5000,
+            "logRequestHeaders": true
         },
         "gills": {},
         "lout": {}
