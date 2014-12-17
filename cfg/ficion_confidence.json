@@ -41,36 +41,40 @@
     },
     "plugins": {
         "good": {
+            "opsInterval": 5000,
+            "logRequestHeaders": true,
             "reporters": [{
                 "reporter": "good-console",
-                "args": [{ "request": "*", "ops": "*", "log": "*", "error": "*" }]
+                "args": [{ "response": "*", "ops": "*", "log": "*", "error": "*" }]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/", { "request": "*" }, { "fileName": "request.log" }
+                    "/tmp/ficion/log/response.log",
+                    { "response": "*" }
                 ]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/", { "ops": "*" }, { "fileName": "ops.log" }
+                    "/tmp/ficion/log/ops.log",
+                    { "ops": "*" }
                 ]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/", { "log": "*" }, { "fileName": "log.log" }
+                    "/tmp/ficion/log/log.log",
+                    { "log": "*" }
                 ]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/", { "error": "*" }, { "fileName": "error.log" }
+                    "/tmp/ficion/log/error.log",
+                    { "error": "*" }
                 ]
-            }],
-            "opsInterval": 5000,
-            "logRequestHeaders": true
+            }]
         },
         "gills": {},
         "lout": {}
