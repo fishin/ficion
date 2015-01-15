@@ -76,7 +76,19 @@
                 ]
             }]
         },
-        "gills": {},
+        "gills": {
+            "apiPath": "/gills",
+            "job": {
+                "dirpath": "/tmp/gills/job",
+                "workspace": "workspace"
+            },
+            "reel": {
+                "dirpath": "/tmp/gills/reel"
+            },
+            "user": {
+                "dirpath": "/tmp/gills/user"
+            }
+        },
         "lout": {}
     }
 }
