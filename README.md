@@ -8,7 +8,7 @@ Fast Intelligent Continous Integration For Node
 
 ## getting started
 
-1.  npm install ficion
+1.  git clone this repo (need to publish so you can just npm install ficion)
 2.  on a github account (generate a clientId and clientSecret to be used for github integration)
 3.  cp cfg/ficion_confidence_example.json cfg/ficion_confidence.json (note you will have to make your config dirs for log) (maybe have an init here to prompt for a few things?)
 4.  npm start
