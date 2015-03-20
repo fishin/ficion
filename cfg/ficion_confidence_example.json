@@ -5,7 +5,8 @@
             "routes": {
                 "timeout": {
                     "server": 10000
-                }
+                },
+                "auth": "session"
             },
             "load": {
                 "maxHeapUsedBytes": 1073741824,
@@ -50,28 +51,28 @@
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/response.log",
+                    "/Users/lbenson/ficion/log/response.log",
                     { "response": "*" }
                 ]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/ops.log",
+                    "/Users/lbenson/ficion/log/ops.log",
                     { "ops": "*" }
                 ]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/log.log",
+                    "/Users/lbenson/ficion/log/log.log",
                     { "log": "*" }
                 ]
             },
             {
                 "reporter": "good-file",
                 "args": [
-                    "/tmp/ficion/log/error.log",
+                    "/Users/lbenson/ficion/log/error.log",
                     { "error": "*" }
                 ]
             }]
@@ -79,14 +80,30 @@
         "gills": {
             "apiPath": "/gills",
             "job": {
-                "dirpath": "/tmp/gills/job",
+                "dirPath": "/Users/lbenson/ficion/job",
                 "workspace": "workspace"
             },
             "reel": {
-                "dirpath": "/tmp/gills/reel"
+                "dirPath": "/Users/lbenson/ficion/reel"
             },
             "user": {
-                "dirpath": "/tmp/gills/user"
+                "dirPath": "/Users/lbenson/ficion/user"
+            },
+            "prs": {
+                "autoStart": false
+            },
+            "session": {
+                "cookie": {
+                    "name": "ficion",
+                    "password": "secret"
+                },
+                "bell": {
+                    "github": {
+                        "password": "secret",
+                        "clientId": "clientId",
+                        "clientSecret": "clientSecret"
+                    }
+                }
             }
         },
         "lout": {}
