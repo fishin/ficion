@@ -43,38 +43,30 @@
     "plugins": {
         "good": {
             "opsInterval": 5000,
-            "logRequestHeaders": true,
+            "requestHeaders": true,
             "reporters": [{
                 "reporter": "good-console",
-                "args": [{ "response": "*", "ops": "*", "log": "*", "error": "*" }]
+                "events": { "log": "*", "error": "*" }
             },
             {
                 "reporter": "good-file",
-                "args": [
-                    "/Users/lbenson/ficion/log/response.log",
-                    { "response": "*" }
-                ]
+                "events": { "response": "*" },
+                "config": "/Users/lbenson/ficion/log/response.log"
             },
             {
                 "reporter": "good-file",
-                "args": [
-                    "/Users/lbenson/ficion/log/ops.log",
-                    { "ops": "*" }
-                ]
+                "events": { "ops": "*" },
+                "config": "/Users/lbenson/ficion/log/ops.log"
             },
             {
                 "reporter": "good-file",
-                "args": [
-                    "/Users/lbenson/ficion/log/log.log",
-                    { "log": "*" }
-                ]
+                "events": { "log": "*" },
+                "config": "/Users/lbenson/ficion/log/log.log"
             },
             {
                 "reporter": "good-file",
-                "args": [
-                    "/Users/lbenson/ficion/log/error.log",
-                    { "error": "*" }
-                ]
+                "events": { "error": "*" },
+                "config": "/Users/lbenson/ficion/log/error.log"
             }]
         },
         "gills": {
