@@ -1,2 +1,4 @@
 node_modules
-cfg/ficion_confidence.json
+cfg/*.json
+!cfg/*_example.json
+*.log

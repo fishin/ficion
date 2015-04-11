@@ -1,0 +1,163 @@
+{
+    "connections": [
+        {
+            "port": 8080,
+            "routes": {
+                "timeout": {
+                    "server": 10000
+                },
+                "auth": "session"
+            },
+            "load": {
+                "maxHeapUsedBytes": 1073741824,
+                "maxRssBytes": 2147483648,
+                "maxEventLoopDelay": 60000
+            },
+            "labels": [
+                "api",
+                "http"
+            ]
+        },
+        {
+            "port": 8999,
+            "routes": {
+                "timeout": {
+                    "server": 10000
+                }
+            },
+            "load": {
+                "maxHeapUsedBytes": 1073741824,
+                "maxRssBytes": 2147483648,
+                "maxEventLoopDelay": 5000
+            },
+            "labels": [
+                "admin"
+            ]
+        }
+    ],
+    "server": {
+        "load": {
+            "sampleInterval": 1000
+        }
+    },
+    "plugins": {
+        "$filter": "env",
+        "dev": {
+            "good": {
+                "opsInterval": 5000,
+                "requestHeaders": true,
+                "reporters": [
+                {
+                    "reporter": "good-console",
+                    "events": { "log": "*", "error": "*" }
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "response": "*" },
+                    "config": "/home/lloyd/ficion/log/gills/response.log"
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "ops": "*" },
+                    "config": "/home/lloyd/ficion/log/gills/ops.log"
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "log": "*" },
+                    "config": "/home/lloyd/ficion/log/gills/log.log"
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "error": "*" },
+                    "config": "/home/lloyd/ficion/log/gills/error.log"
+                }]
+            },
+            "gills": {
+                "apiPath": "/gills",
+                "job": {
+                    "dirPath": "/home/lloyd/ficion/job",
+                    "workspace": "workspace"
+                },
+                "reel": {
+                    "dirPath": "/home/lloyd/ficion/reel"
+                },
+                "user": {
+                    "dirPath": "/home/lloyd/ficion/user"
+                },
+                "prs": {
+                    "autoStart": false
+                },
+                "session": {
+                    "cookie": {
+                        "name": "ficion",
+                        "password": "secret"
+                    },
+                    "bell": {
+                        "github": {
+                            "password": "secret",
+                            "clientId": "clientId",
+                            "clientSecret": "clientSecret"
+                        }
+                    }
+                }
+            },
+            "lout": {}
+        },
+        "$default": {
+            "good": {
+                "opsInterval": 5000,
+                "requestHeaders": true,
+                "reporters": [
+                {
+                    "reporter": "good-file",
+                    "events": { "response": "*" },
+                    "config": "/app/ficion/log/gills/response.log"
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "ops": "*" },
+                    "config": "/app/ficion/log/gills/ops.log"
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "log": "*" },
+                    "config": "/app/ficion/log/gills/log.log"
+                },
+                {
+                    "reporter": "good-file",
+                    "events": { "error": "*" },
+                    "config": "/app/ficion/log/gills/error.log"
+                }]
+            },
+            "gills": {
+                "apiPath": "/gills",
+                "job": {
+                    "dirPath": "/app/ficion/job",
+                    "workspace": "workspace"
+                },
+                "reel": {
+                    "dirPath": "/app/ficion/reel"
+                },
+                "user": {
+                    "dirPath": "/app/ficion/user"
+                },
+                "prs": {
+                    "autoStart": false
+                },
+                "session": {
+                    "cookie": {
+                        "name": "ficion",
+                        "password": "secret"
+                    },
+                    "bell": {
+                        "github": {
+                            "password": "secret",
+                            "clientId": "clientId",
+                            "clientSecret": "clientSecret"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -4,7 +4,8 @@
   "description": "ficion ======",
   "main": "index.js",
   "scripts": {
-    "start": "bin/start.sh"
+    "start": "bin/start.sh",
+    "stop": "bin/stop.sh"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "lout": "6.x.x",
     "node-uuid": "1.4.x",
     "rejoice": "2.x.x",
-    "gills": "git+https://github.com/fishin/gills.git"
+    "gills": "git+https://github.com/fishin/gills.git",
+    "tacklebox": "git+https://github.com/fishin/tacklebox.git"
   }
 }
