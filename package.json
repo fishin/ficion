@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/fishin/ficion/issues"
   },
-  "keywords": [ 'ci', 'continuous integration', 'hapi', 'scheduler' ],
+  "keywords": [ "ci", "continuous integration", "hapi", "scheduler" ],
   "homepage": "https://github.com/fishin/ficion",
   "dependencies": {
     "boom": "2.x.x",
