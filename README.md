@@ -15,3 +15,7 @@ Fast Intelligent Continous Integration For Node
 5.  go to https://localhost:8080
 6.  login as admin and put in your new password and click the login button
 7.  To create a github user go to create User-> and you just need to put in your github account and select type of github.  You can logout and click on the github login link from then on to use your github creds
+
+For more higher level discussion take a look at:
+
+https://github.com/fishin/discuss
