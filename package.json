@@ -1,7 +1,7 @@
 {
   "name": "ficion",
   "version": "0.0.3",
-  "description": "ficion ======",
+  "description": "Fast Intelligent Continuous Integration On Node",
   "main": "index.js",
   "scripts": {
     "start": "bin/start.sh",
