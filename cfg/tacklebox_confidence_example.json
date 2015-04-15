@@ -60,7 +60,6 @@
                 }]
             },
             "tacklebox": {
-                "apiPath": "/tacklebox",
                 "job": {
                     "dirPath": "/home/lloyd/ficion/job",
                     "workspace": "workspace"
