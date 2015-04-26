@@ -16,6 +16,7 @@ application name: ficion
 homepage url: https://github.com/fishin/ficion
 application description: ficion
 authorization callback url: http://localhost:8080/
+4.  with the same user on github or a different user, you also need to generate a personal token so that it can do github api stuff.  This should be some sort of system account.  The other one is strictly for user specific information. 
 4.  cp cfg/gills_confidence_example.json cfg/gills_confidence.json (note you will have to make your config dirs for logging) (maybe have an init here to prompt for a few things?) - this is the UI config
 5.  cp cfg/tacklebox_confidence_example.json cfg/tacklebox_confidence.json - this is the API config
 6.  npm start (npm stop will stop)
