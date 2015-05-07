@@ -42,10 +42,32 @@
     },
     "plugins": {
         "$filter": "env",
-        "dev": {
+        "$base": {
             "good": {
                 "opsInterval": 5000,
-                "requestHeaders": true,
+                "requestHeaders": true
+            },
+            "gills": {
+                "prs": {
+                    "autoStart": false
+                },
+                "session": {
+                    "cookie": {
+                        "name": "ficion",
+                        "password": "secret"
+                    },
+                    "bell": {
+                        "github": {
+                            "password": "secret",
+                            "clientId": "clientId",
+                            "clientSecret": "clientSecret"
+                        }
+                    }
+                }
+            }
+        },
+        "dev": {
+            "good": {
                 "reporters": [
                 {
                     "reporter": "good-console",
@@ -68,45 +90,30 @@
                 },
                 {
                     "reporter": "good-file",
+                    "events": { "wreck": "*" },
+                    "config": "/home/lloyd/ficion/log/gills/wreck.log"
+                },
+                {
+                    "reporter": "good-file",
                     "events": { "error": "*" },
                     "config": "/home/lloyd/ficion/log/gills/error.log"
                 }]
             },
             "gills": {
-                "apiPath": "/gills",
                 "job": {
-                    "dirPath": "/home/lloyd/ficion/job",
-                    "workspace": "workspace"
+                    "dirPath": "/home/lloyd/ficion/job"
                 },
                 "reel": {
                     "dirPath": "/home/lloyd/ficion/reel"
                 },
                 "user": {
                     "dirPath": "/home/lloyd/ficion/user"
-                },
-                "prs": {
-                    "autoStart": false
-                },
-                "session": {
-                    "cookie": {
-                        "name": "ficion",
-                        "password": "secret"
-                    },
-                    "bell": {
-                        "github": {
-                            "password": "secret",
-                            "clientId": "clientId",
-                            "clientSecret": "clientSecret"
-                        }
-                    }
                 }
             },
             "lout": {}
         },
         "$default": {
             "good": {
-                "opsInterval": 5000,
-                "requestHeaders": true,
                 "reporters": [
                 {
                     "reporter": "good-file",
@@ -130,32 +137,14 @@
                 }]
             },
             "gills": {
-                "apiPath": "/gills",
                 "job": {
-                    "dirPath": "/app/ficion/job",
-                    "workspace": "workspace"
+                    "dirPath": "/app/ficion/job"
                 },
                 "reel": {
                     "dirPath": "/app/ficion/reel"
                 },
                 "user": {
                     "dirPath": "/app/ficion/user"
-                },
-                "prs": {
-                    "autoStart": false
-                },
-                "session": {
-                    "cookie": {
-                        "name": "ficion",
-                        "password": "secret"
-                    },
-                    "bell": {
-                        "github": {
-                            "password": "secret",
-                            "clientId": "clientId",
-                            "clientSecret": "clientSecret"
-                        }
-                    }
                 }
             }
         }

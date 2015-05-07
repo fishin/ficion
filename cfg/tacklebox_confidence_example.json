@@ -29,10 +29,39 @@
     },
     "plugins": {
         "$filter": "env",
-        "dev": {
+        "$base": {
             "good": {
                 "opsInterval": 5000,
-                "requestHeaders": true,
+                "requestHeaders": true
+            },
+            "tacklebox": {
+                "job": {
+                    "notify": {
+                        "plugins": {
+                            "email": {
+                                "options": {
+                                    "transporter": {
+                                        "service": "gmail",
+                                        "auth": {
+                                            "user": "lloyd.benson@gmail.com",
+                                            "pass": "password"
+                                        },
+                                        "from": "donotreply@ficion.net",
+                                        "subjectHeader": "[ficion]"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "github": {
+                    "token": "token"
+                }
+            },
+            "lout": {}
+        },
+        "dev": {
+            "good": {
                 "reporters": [
                 {
                     "reporter": "good-console",
@@ -61,25 +90,18 @@
             },
             "tacklebox": {
                 "job": {
-                    "dirPath": "/home/lloyd/ficion/job",
-                    "workspace": "workspace"
+                    "dirPath": "/home/lloyd/ficion/job"
                 },
                 "reel": {
                     "dirPath": "/home/lloyd/ficion/reel"
                 },
                 "user": {
                     "dirPath": "/home/lloyd/ficion/user"
-                },
-                "github": {
-                    "token": "token"
                 }
-            },
-            "lout": {}
+            }
         },
         "$default": {
             "good": {
-                "opsInterval": 5000,
-                "requestHeaders": true,
                 "reporters": [
                 {
                     "reporter": "good-file",
@@ -104,19 +126,14 @@
             },
             "tacklebox": {
                 "job": {
-                    "dirPath": "/app/ficion/job",
-                    "workspace": "workspace"
+                    "dirPath": "/app/ficion/job"
                 },
                 "reel": {
                     "dirPath": "/app/ficion/reel"
                 },
                 "user": {
                     "dirPath": "/app/ficion/user"
-                },
-                "github": {
-                    "token": "token"
                 }
-
             }
         }
     }
