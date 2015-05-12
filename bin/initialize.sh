@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IOJS_VERSION="1.7.1"
+IOJS_VERSION="1.8.1"
 
 if [ ! -e ~/.nvm/nvm.sh ];
 then
