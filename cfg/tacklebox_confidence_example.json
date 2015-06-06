@@ -9,6 +9,11 @@
             "routes": {
                 "timeout": {
                     "server": 10000
+                },
+                "cors": {
+                    "origin": [
+                        "http://localhost:8080"
+                    ]
                 }
             },
             "load": {
