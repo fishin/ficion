@@ -5,6 +5,7 @@ Fast Intelligent Continous Integration For Node
 
 [![NPM version](https://badge.fury.io/js/ficion.svg)](http://badge.fury.io/js/ficion)
 [![devDependency Status](https://david-dm.org/fishin/ficion/dev-status.svg)](https://david-dm.org/fishin/ficion#info=devDependencies)
+[![Join the chat at https://gitter.im/fishin/ficion](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fishin/ficion?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## getting started
 
