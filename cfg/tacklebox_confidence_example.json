@@ -41,6 +41,9 @@
             },
             "tacklebox": {
                 "job": {
+                    "queue": {
+                        "size": 2
+                    },
                     "notify": {
                         "plugins": {
                             "email": {
