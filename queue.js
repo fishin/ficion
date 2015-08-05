@@ -3,7 +3,7 @@ var Wreck = require('wreck');
 
 var url = 'http://localhost:8081/api';
 
-var projects = [ 'angler', 'bait', 'bobber', 'brag', 'catch-and-release', 'fillet', 'fishhook', 'gills', 'hatchery', 'mock', 'pail', 'reel', 'smelt', 'tacklebox', 'demo' ];
+var projects = [ 'angler', 'bait', 'bobber', 'brag', 'catch-and-release', 'fillet', 'fishhook', 'gills', 'hatchery', 'mock', 'pail', 'reel', 'smelt', 'tacklebox', 'demo', 'taut' ];
 
 var iterate = function(i) {
 

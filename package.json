@@ -26,11 +26,11 @@
     "good-console": "5.x.x",
     "hapi": "8.x.x",
     "hoek": "2.x.x",
-    "joi": "5.x.x",
+    "joi": "6.x.x",
     "lout": "6.x.x",
     "node-uuid": "1.4.x",
     "rejoice": "2.x.x",
-    "wreck": "5.x.x",
+    "wreck": "6.x.x",
     "gills": "git+https://github.com/fishin/gills.git",
     "tacklebox": "git+https://github.com/fishin/tacklebox.git"
   }
