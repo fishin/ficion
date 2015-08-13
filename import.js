@@ -18,7 +18,9 @@ var template = {
         pattern: '*/5 * * * *'
     },
     archive: {
-        pattern: 'lab.json,lab.html,console.log'
+        pattern: 'lab.json,lab.html,console.log',
+        type: 'maxnum',
+        maxNumber: '20'
     },
     notify: {
         type: 'none'
