@@ -22,8 +22,15 @@ var template = {
         type: 'maxnum',
         maxNumber: '20'
     },
-    notify: {
-        type: 'none'
+    "notify": {
+        "type": "email",
+        "to": "lloyd.benson@gmail.com",
+        "subject": "{name} {status}",
+        "message": "http://localhost:8080/view/job/{jobId}/run/{runId}",
+        "statuses": [
+            "failed",
+            "fixed"
+        ]
     }
 };
 
