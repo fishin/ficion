@@ -9,7 +9,7 @@ Fast Intelligent Continous Integration For Node
 
 ## getting started
 
-1.  if new to node try the bin/initialize.sh which will setup nvm and iojs for you, otherwise download the 2.1.0 iojs version.
+1.  bin/initialize.sh which will setup nvm and iojs for you.
 2.  git clone https://github.com/fishin/ficion or npm install ficion
 3.  on a github account (generate a clientId and clientSecret to be used for github integration) - see https://auth0.com/docs/github-clientid.
 Additional pieces of info I used are:
