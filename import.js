@@ -14,7 +14,7 @@ var template = {
         runOnCommit: false
     },
     schedule: {
-        type: 'none',
+        type: 'cron',
         pattern: '*/5 * * * *'
     },
     archive: {
@@ -44,6 +44,18 @@ var iterate = function(i) {
                 url: 'https://github.com/fishin/' + projects[i]
             }
         };
+        if (job.name === 'tacklebox' || job.name === 'bobber' || job.name === 'bait') {
+            job.scm.runOnCommit = true;
+        }
+        else {
+            job.scm.runOnCommit = false;
+        }
+        if (job.name === 'demo') {
+            job.scm.prs = true;
+        }
+        else {
+            job.scm.prs = false;
+        }
         var payload = Hoek.merge(template, job);
         var options = {
             payload: JSON.stringify(payload)
