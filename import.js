@@ -6,7 +6,7 @@ var url = 'http://localhost:8081/api';
 var projects = [ 'angler', 'bait', 'bobber', 'brag', 'catch-and-release', 'demo', 'fillet', 'fishhook', 'gills', 'hatchery', 'mock', 'pail', 'reel', 'smelt', 'tacklebox', 'taut' ];
 
 var template = {
-    body: ['npm install', 'npm test'],
+    body: ['npm run clean', 'npm install', 'npm test'],
     scm: {
         type: 'git',
         branch: 'master',
