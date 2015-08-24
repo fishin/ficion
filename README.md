@@ -12,14 +12,14 @@ Fast Intelligent Continous Integration For Node
 - bin/initialize.sh which will setup nvm and iojs for you.
 - git clone https://github.com/fishin/ficion or npm install ficion
 - on a github account (generate a clientId and clientSecret to be used for github integration) - see https://auth0.com/docs/github-clientid.
--- Additional pieces of info I used are:
--- application name: ficion
--- homepage url: https://github.com/fishin/ficion
--- application description: ficion
--- authorization callback url: http://localhost:8080/
--- you need the following permissions:
---- access to read private repos
----  user data read access
+  - Additional pieces of info I used are:
+  - application name: ficion
+  - homepage url: https://github.com/fishin/ficion
+  - application description: ficion
+  - authorization callback url: http://localhost:8080/
+  - you need the following permissions:
+    - access to read private repos
+    -  user data read access
 -  with the same user on github or a different user, you also need to generate a personal token so that it can do github api stuff.  This should be some sort of system account.  The other one is strictly for user specific information. 
 -  cp cfg/gills_confidence_example.json cfg/gills_confidence.json (note you will have to make your config dirs for logging) (maybe have an init here to prompt for a few things?) - this is the UI config
 - cp cfg/tacklebox_confidence_example.json cfg/tacklebox_confidence.json - this is the API config
