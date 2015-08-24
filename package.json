@@ -6,8 +6,9 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "import": "node import.js",
-    "start": "bin/start.sh",
-    "stop": "bin/stop.sh"
+    "start": "node ./lib/start.js",
+    "bash-start": "bin/start.sh",
+    "bash-stop": "bin/stop.sh"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "rejoice": "2.x.x",
     "wreck": "6.x.x",
     "gills": "git+https://github.com/fishin/gills.git",
+    "smelt": "git+https://github.com/fishin/smelt.git",
     "tacklebox": "git+https://github.com/fishin/tacklebox.git"
   }
 }

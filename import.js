@@ -15,7 +15,7 @@ var template = {
     },
     schedule: {
         type: 'cron',
-        pattern: '*/5 * * * *'
+        pattern: '*/10 * * * *'
     },
     archive: {
         pattern: 'lab.json,lab.html,console.log',
@@ -33,6 +33,68 @@ var template = {
         ]
     }
 };
+
+var jobs = [
+    {
+        name: 'clean',
+        scm: {
+            type: 'git',
+            url: 'https://github.com/fishin/ficion',
+            branch: 'master',
+            prs: false,
+            runOnCommit: false
+        },
+        body: [ 'bin/cleanNPM.sh' ],
+        schedule: {
+            type: 'cron',
+            pattern: '8 0 * * *'
+        },
+        "notify": {
+            "type": "email",
+            "to": "lloyd.benson@gmail.com",
+            "subject": "{name} {status}",
+            "message": "http://localhost:8080/view/job/{jobId}/run/{runId}",
+            "statuses": [
+                "failed",
+                "fixed"
+            ]
+        }
+    },
+    {
+        name: 'rejoice',
+        scm: {
+            type: 'git',
+            url: 'https://github.com/hapijs/rejoice',
+            branch: 'master',
+            prs: false,
+            runOnCommit: false
+        },
+        body: [
+            'rm -rf node_modules',
+            'npm install',
+            'node_modules/.bin/lab -a code -t 100 -v -m 2000  -L -r json -o lab.json -r html -o lab.html -r console -o stdout -r console -o console.log'
+        ],
+        schedule: {
+            type: 'cron',
+            pattern: '*/15 * * * *'
+        },
+        archive: {
+            pattern: 'lab.json,lab.html,console.log',
+            type: 'maxnum',
+            maxNumber: '20'
+        },
+        "notify": {
+            "type": "email",
+            "to": "lloyd.benson@gmail.com",
+            "subject": "{name} {status}",
+            "message": "http://localhost:8080/view/job/{jobId}/run/{runId}",
+            "statuses": [
+                "failed",
+                "fixed"
+            ]
+        }
+    }
+];
 
 var iterate = function(i) {
 
@@ -72,3 +134,24 @@ var iterate = function(i) {
     }
 };
 iterate(0);
+
+var iterateJobs = function(j) {
+
+    if (j < jobs.length) {
+        var job = jobs[j];
+        console.log('importing job: ' + jobs[j].name);
+        var options = {
+            payload: JSON.stringify(job)
+        };
+        //console.log(options);
+        Wreck.post(url + '/job', options, function(err, resp, payload) {
+            if (err) {
+                //console.log(err);
+                //console.log(payload);
+                //console.log(resp);
+            }
+            iterateJobs(j + 1);
+        });
+    }
+};
+iterateJobs(0);
