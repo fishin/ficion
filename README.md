@@ -23,7 +23,9 @@ Fast Intelligent Continous Integration For Node
 -  with the same user on github or a different user, you also need to generate a personal token so that it can do github api stuff.  This should be some sort of system account.  The other one is strictly for user specific information. 
 -  cp cfg/gills_confidence_example.json cfg/gills_confidence.json (note you will have to make your config dirs for logging) (maybe have an init here to prompt for a few things?) - this is the UI config
 - cp cfg/tacklebox_confidence_example.json cfg/tacklebox_confidence.json - this is the API config
-- npm start (npm stop will stop)
+  - Note: For good the log directories need to be created.  There is an open bug against good to have this created for you automatically.
+  - For tacklebox, please create a directory where you want user, reel, and job directories to be and set the appropriate dir path.  This should be a full path.
+- npm start (you can use npm run bash-start npm run bash-stop for background control if unix)
 - go to http://localhost:8080 for UI http://localhost:8081/docs will show you your api server
 - login as admin and put in your new password and click the login button
 - To create a github user go to create User-> and you just need to put in your github account and select type of github.  You can logout and click on the github login link from then on to use your github creds.
