@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "import": "node import.js",
-    "start": "node ./lib/start.js",
-    "bash-start": "bin/start.sh",
-    "bash-stop": "bin/stop.sh"
+    "start-simple": "node ./lib/start.js",
+    "start": "bin/start.sh",
+    "stop": "bin/stop.sh"
   },
   "repository": {
     "type": "git",

@@ -25,7 +25,7 @@ Fast Intelligent Continous Integration For Node
 - cp cfg/tacklebox_confidence_example.json cfg/tacklebox_confidence.json - this is the API config
   - Note: For good the log directories need to be created.  There is an open bug against good to have this created for you automatically.
   - For tacklebox, please create a directory where you want user, reel, and job directories to be and set the appropriate dir path.  This should be a full path.
-- npm start (you can use npm run bash-start npm run bash-stop for background control if unix)
+- npm start/stop (you can use npm run start-simple for non-bash platforms)
 - go to http://localhost:8080 for UI http://localhost:8081/docs will show you your api server
 - login as admin and put in your new password and click the login button
 - To create a github user go to create User-> and you just need to put in your github account and select type of github.  You can logout and click on the github login link from then on to use your github creds.
