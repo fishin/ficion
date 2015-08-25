@@ -25,9 +25,10 @@ var template = {
     "notify": {
         "type": "email",
         "to": "lloyd.benson@gmail.com",
-        "subject": "{name} {status}",
-        "message": "http://localhost:8080/view/job/{jobId}/run/{runId}",
+        "subject": "[ficion] {name} {status}",
+        "message": "http://localhost:8080/view/{relativeUrl}",
         "statuses": [
+            "cancelled",
             "failed",
             "fixed"
         ]
