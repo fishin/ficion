@@ -25,7 +25,7 @@ var template = {
     "notify": {
         "type": "email",
         "to": "lloyd.benson@gmail.com",
-        "subject": "[ficion] {name} {status}",
+        "subject": "[ficion] [{type}] {name} {status}",
         "message": "http://localhost:8080/view/{relativeUrl}",
         "statuses": [
             "cancelled",
@@ -53,9 +53,10 @@ var jobs = [
         "notify": {
             "type": "email",
             "to": "lloyd.benson@gmail.com",
-            "subject": "{name} {status}",
+            "subject": "[ficion] [{type}] {name} {status}",
             "message": "http://localhost:8080/view/job/{jobId}/run/{runId}",
             "statuses": [
+                "cancelled",
                 "failed",
                 "fixed"
             ]
@@ -87,9 +88,10 @@ var jobs = [
         "notify": {
             "type": "email",
             "to": "lloyd.benson@gmail.com",
-            "subject": "{name} {status}",
+            "subject": "[ficion] [{type}] {name} {status}",
             "message": "http://localhost:8080/view/job/{jobId}/run/{runId}",
             "statuses": [
+                "cancelled",
                 "failed",
                 "fixed"
             ]
