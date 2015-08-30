@@ -17,22 +17,6 @@
                 "api",
                 "http"
             ]
-        },
-        {
-            "port": 8999,
-            "routes": {
-                "timeout": {
-                    "server": 10000
-                }
-            },
-            "load": {
-                "maxHeapUsedBytes": 1073741824,
-                "maxRssBytes": 2147483648,
-                "maxEventLoopDelay": 5000
-            },
-            "labels": [
-                "admin"
-            ]
         }
     ],
     "server": {
@@ -67,6 +51,9 @@
             }
         },
         "dev": {
+            "poop": {
+                "logPath": "/home/lloyd/ficion/log/gills.poop"
+            },
             "good": {
                 "reporters": [
                 {

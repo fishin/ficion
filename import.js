@@ -18,7 +18,7 @@ var template = {
         pattern: '*/10 * * * *'
     },
     archive: {
-        pattern: 'lab.json,lab.html,console.log',
+        pattern: 'test.lab,test.html,test.log',
         type: 'maxnum',
         maxNumber: '20'
     },
@@ -74,14 +74,14 @@ var jobs = [
         body: [
             'rm -rf node_modules',
             'npm install',
-            'node_modules/.bin/lab -a code -t 100 -v -m 2000  -L -r json -o lab.json -r html -o lab.html -r console -o stdout -r console -o console.log'
+            'node_modules/.bin/lab -a code -t 100 -v -m 2000  -L -r json -o test.lab -r html -o test.html -r console -o stdout -r console -o test.log'
         ],
         schedule: {
             type: 'cron',
             pattern: '*/15 * * * *'
         },
         archive: {
-            pattern: 'lab.json,lab.html,console.log',
+            pattern: 'test.lab,test.html,test.log',
             type: 'maxnum',
             maxNumber: '20'
         },
