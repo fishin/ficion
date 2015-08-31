@@ -17,8 +17,6 @@
                 }
             },
             "load": {
-                "maxHeapUsedBytes": 1073741824,
-                "maxRssBytes": 2147483648,
                 "maxEventLoopDelay": 60000
             },
             "labels": [
