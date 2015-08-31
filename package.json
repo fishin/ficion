@@ -7,8 +7,12 @@
     "clean": "rm -rf node_modules",
     "import": "node import.js",
     "start-simple": "node ./lib/start.js",
-    "start": "bin/start.sh",
-    "stop": "bin/stop.sh"
+    "start": "bin/startAPI.sh && bin/startUI.sh",
+    "start-ui": "bin/startUI.sh",
+    "start-api": "bin/startAPI.sh",
+    "stop": "bin/stopUI.sh && bin/stopAPI.sh",
+    "stop-ui": "bin/stopUI.sh",
+    "stop-api": "bin/stopAPI.sh"
   },
   "repository": {
     "type": "git",
