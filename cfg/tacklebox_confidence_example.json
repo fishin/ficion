@@ -8,7 +8,7 @@
             },
             "routes": {
                 "timeout": {
-                    "server": 10000
+                    "server": 60000
                 },
                 "cors": {
                     "origin": [
