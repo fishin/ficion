@@ -33,6 +33,8 @@
     "plugins": {
         "$filter": "env",
         "$base": {
+            "inert": {},
+            "vision": {},
             "good": {
                 "opsInterval": 5000,
                 "requestHeaders": true
