@@ -9,7 +9,7 @@ Fast Intelligent Continous Integration For Node
 
 ## getting started
 
-- bin/initialize.sh which will setup nvm and 0.10 for you.
+- bin/initialize.sh which will setup nvm and node for you.
 - git clone https://github.com/fishin/ficion or npm install ficion
 - on a github account (generate a clientId and clientSecret to be used for github integration) - see https://auth0.com/docs/github-clientid.
   - Additional pieces of info I used are:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODEJS_VERSION="0.10.40"
+NODEJS_VERSION="4.0.0"
 
 if [ ! -e ~/.nvm/nvm.sh ];
 then

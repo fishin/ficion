@@ -24,7 +24,7 @@
     "url": "https://github.com/fishin/ficion/issues"
   },
   "engines": {
-    "node": ">=0.10.x"
+    "node": ">=4"
   },
   "keywords": [ "ci", "continuous integration", "hapi", "scheduler" ],
   "homepage": "https://github.com/fishin/ficion",
