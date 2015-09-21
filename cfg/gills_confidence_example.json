@@ -50,7 +50,10 @@
         },
         "dev": {
             "poop": {
-                "logPath": "/home/lloyd/ficion/log/gills.poop"
+                "logPath": "/home/lloyd/ficion/log/gills.poop",
+                "writeStreamOptions": {
+                    "flags": "a"
+                }
             },
             "good": {
                 "reporters": [
