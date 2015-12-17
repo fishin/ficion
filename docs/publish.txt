@@ -1,3 +1,4 @@
 npm version x.x.x -m "version x.x.x"
 git push --tags
 npm publish
+
