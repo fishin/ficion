@@ -43,7 +43,7 @@
     "lout": "7.x.x",
     "poop": "1.x.x",
     "node-uuid": "1.4.x",
-    "rejoice": "2.x.x",
+    "rejoice": "3.x.x",
     "vision": "3.x.x",
     "wreck": "6.x.x",
     "gills": "git+https://github.com/fishin/gills.git",

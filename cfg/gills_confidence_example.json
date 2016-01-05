@@ -1,140 +1,181 @@
 {
-    "connections": [
-        {
-            "port": 8080,
-            "routes": {
-                "timeout": {
-                    "server": 60000
+    "$filter": "env",
+    "$base": {
+        "connections": [
+            {
+                "port": 8080,
+                "routes": {
+                    "timeout": {
+                        "server": 60000
+                    },
+                    "auth": "session"
                 },
-                "auth": "session"
-            },
+                "load": {
+                    "maxEventLoopDelay": 60000
+                },
+                "labels": [
+                    "api",
+                    "http"
+                ]
+            }
+        ],
+        "server": {
             "load": {
-                "maxEventLoopDelay": 60000
-            },
-            "labels": [
-                "api",
-                "http"
-            ]
-        }
-    ],
-    "server": {
-        "load": {
-            "sampleInterval": 1000
+                "sampleInterval": 1000
+            }
         }
     },
-    "plugins": {
-        "$filter": "env",
-        "$base": {
-            "good": {
-                "opsInterval": 5000,
-                "requestHeaders": true
-            },
-            "gills": {
-                "prs": {
-                    "autoStart": false
-                },
-                "session": {
-                    "cookie": {
-                        "name": "ficion",
-                        "password": "secret"
-                    },
-                    "bell": {
-                        "github": {
-                            "password": "secret",
-                            "clientId": "clientId",
-                            "clientSecret": "clientSecret"
-                        }
+    "dev": {
+        "registrations": [
+        {
+            "plugin": {
+                "register": "poop",
+                "options": {
+                    "logPath": "/home/lloyd/ficion/log/gills.poop",
+                    "writeStreamOptions": {
+                        "flags": "a"
                     }
                 }
             }
         },
-        "dev": {
-            "poop": {
-                "logPath": "/home/lloyd/ficion/log/gills.poop",
-                "writeStreamOptions": {
-                    "flags": "a"
-                }
-            },
-            "good": {
-                "reporters": [
-                {
-                    "reporter": "good-console",
-                    "events": { "log": "*", "error": "*" }
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "response": "*" },
-                    "config": "/home/lloyd/ficion/log/gills/response.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "ops": "*" },
-                    "config": "/home/lloyd/ficion/log/gills/ops.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "log": "*" },
-                    "config": "/home/lloyd/ficion/log/gills/log.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "wreck": "*" },
-                    "config": "/home/lloyd/ficion/log/gills/wreck.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "error": "*" },
-                    "config": "/home/lloyd/ficion/log/gills/error.log"
-                }]
-            },
-            "gills": {
-                "job": {
-                    "dirPath": "/home/lloyd/ficion/job"
-                },
-                "reel": {
-                    "dirPath": "/home/lloyd/ficion/reel"
-                },
-                "user": {
-                    "dirPath": "/home/lloyd/ficion/user"
-                }
-            },
-            "lout": {}
-        },
-        "$default": {
-            "good": {
-                "reporters": [
-                {
-                    "reporter": "good-file",
-                    "events": { "response": "*" },
-                    "config": "/app/ficion/log/gills/response.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "ops": "*" },
-                    "config": "/app/ficion/log/gills/ops.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "log": "*" },
-                    "config": "/app/ficion/log/gills/log.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "error": "*" },
-                    "config": "/app/ficion/log/gills/error.log"
-                }]
-            },
-            "gills": {
-                "job": {
-                    "dirPath": "/app/ficion/job"
-                },
-                "reel": {
-                    "dirPath": "/app/ficion/reel"
-                },
-                "user": {
-                    "dirPath": "/app/ficion/user"
+        {
+            "plugin": {
+                "register": "good",
+                "options": {
+                    "opsInterval": 5000,
+                    "requestHeaders": true,
+                    "reporters": [
+                    {
+                        "reporter": "good-console",
+                        "events": { "log": "*", "error": "*" }
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "response": "*" },
+                        "config": "/home/lloyd/ficion/log/gills/response.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "ops": "*" },
+                        "config": "/home/lloyd/ficion/log/gills/ops.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "log": "*" },
+                        "config": "/home/lloyd/ficion/log/gills/log.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "wreck": "*" },
+                        "config": "/home/lloyd/ficion/log/gills/wreck.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "error": "*" },
+                        "config": "/home/lloyd/ficion/log/gills/error.log"
+                    }]
                 }
             }
-        }
+        },
+        {
+            "plugin": {
+                "register": "gills",
+                "options": {
+                    "prs": {
+                        "autoStart": false
+                    },
+                    "session": {
+                        "cookie": {
+                            "name": "ficion",
+                            "password": "password"
+                        },
+                        "bell": {
+                            "github": {
+                                "password": "password",
+                                "clientId": "clientId",
+                                "clientSecret": "clientSecret"
+                            }
+                        }
+                    },
+                    "job": {
+                        "dirPath": "/home/lloyd/ficion/job"
+                    },
+                    "reel": {
+                        "dirPath": "/home/lloyd/ficion/reel"
+                    },
+                    "user": {
+                        "dirPath": "/home/lloyd/ficion/user"
+                    }
+                }
+            }
+        },
+        {
+            "plugin": "lout"
+        }]
+    },
+    "$default": {
+        "registrations": [
+        {
+            "plugin": {
+                "register": "good",
+                "options": {
+                    "opsInterval": 5000,
+                    "requestHeaders": true,
+                    "reporters": [
+                    {
+                        "reporter": "good-file",
+                        "events": { "response": "*" },
+                        "config": "/app/ficion/log/gills/response.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "ops": "*" },
+                        "config": "/app/ficion/log/gills/ops.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "log": "*" },
+                        "config": "/app/ficion/log/gills/log.log"
+                    },
+                    {
+                        "reporter": "good-file",
+                        "events": { "error": "*" },
+                        "config": "/app/ficion/log/gills/error.log"
+                    }]
+                }
+            }
+        },
+        {
+            "plugin": {
+                "register": "gills",
+                "options": {
+                    "prs": {
+                        "autoStart": false
+                    },
+                    "session": {
+                        "cookie": {
+                            "name": "ficion",
+                            "password": "password"
+                        },
+                        "bell": {
+                            "github": {
+                                "password": "password",
+                                "clientId": "clientId",
+                                "clientSecret": "clientSecret"
+                            }
+                        }
+                    },
+                    "job": {
+                        "dirPath": "/app/ficion/job"
+                    },
+                    "reel": {
+                        "dirPath": "/app/ficion/reel"
+                    },
+                    "user": {
+                        "dirPath": "/app/ficion/user"
+                    }
+                }
+            }
+        }]
     }
 }

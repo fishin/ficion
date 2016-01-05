@@ -1,152 +1,218 @@
 {
-    "connections": [
-        {
-            "port": {
-                "$filter": "port",
-                "$default": 8081,
-                "port2": 8082
-            },
-            "routes": {
-                "timeout": {
-                    "server": 60000
+    "$filter": "env",
+    "$base": {
+        "connections": [
+            {
+                "port": {
+                    "$filter": "port",
+                    "$default": 8081,
+                    "port2": 8082
                 },
-                "cors": {
-                    "origin": [
-                        "http://localhost:8080"
-                    ]
-                }
-            },
+                "routes": {
+                    "timeout": {
+                        "server": 60000
+                    },
+                    "cors": {
+                        "origin": [
+                            "http://localhost:8080"
+                        ]
+                    }
+                },
+                "load": {
+                    "maxEventLoopDelay": 60000
+                },
+                "labels": [
+                    "api",
+                    "http"
+                ]
+            }
+        ],
+        "server": {
             "load": {
-                "maxEventLoopDelay": 60000
-            },
-            "labels": [
-                "api",
-                "http"
-            ]
-        }
-    ],
-    "server": {
-        "load": {
-            "sampleInterval": 1000
+                "sampleInterval": 1000
+            }
         }
     },
-    "plugins": {
-        "$filter": "env",
-        "$base": {
-            "good": {
-                "opsInterval": 5000,
-                "requestHeaders": true
+    "dev": {
+        "registrations": [
+            {
+                "plugin": {
+                    "register": "poop",
+                    "options": {
+                        "logPath": "/home/lloyd/ficion/log/tacklebox.poop",
+                        "writeStreamOptions": {
+                            "flags": "a"
+                        }
+                    }
+                }
             },
-            "tacklebox": {
-                "job": {
-                    "queue": {
-                        "size": 2
-                    },
-                    "notify": {
-                        "plugins": {
-                            "email": {
-                                "options": {
-                                    "transporter": {
-                                        "service": "gmail",
-                                        "auth": {
-                                            "user": "lloyd.benson@gmail.com",
-                                            "pass": "password"
-                                        },
-                                        "from": "donotreply@ficion.net",
-                                        "subjectHeader": "[ficion]"
+            {
+                "plugin": {
+                    "register": "good",
+                    "options": { 
+                        "opsInterval": 5000,
+                        "requestHeaders": true,
+                        "reporters": [
+                        {
+                            "reporter": "good-console",
+                            "events": { "log": "*", "error": "*" }
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "response": "*" },
+                            "config": "/home/lloyd/ficion/log/tacklebox/response.log"
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "ops": "*" },
+                            "config": "/home/lloyd/ficion/log/tacklebox/ops.log"
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "log": "*" },
+                            "config": "/home/lloyd/ficion/log/tacklebox/log.log"
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "error": "*" },
+                            "config": "/home/lloyd/ficion/log/tacklebox/error.log"
+                        }]
+                    }
+                }
+            },
+            {
+                "plugin": {
+                    "register": "tacklebox",
+                    "options": {
+                        "job": {
+                            "dirPath": "/home/lloyd/ficion/job",
+                            "queue": {
+                                "size": 2
+                            },
+                            "notify": {
+                                "plugins": {
+                                    "email": {
+                                        "options": {
+                                            "transporter": {
+                                                "service": "gmail",
+                                                "auth": {
+                                                    "user": "lloyd.benson@gmail.com",
+                                                    "pass": "password"
+                                                },
+                                                "from": "donotreply@ficion.net",
+                                                "subjectHeader": "[ficion]"
+                                            }
+                                        }
                                     }
                                 }
                             }
+                        },
+                        "github": {
+                            "token": "token"
+                        },
+                        "reel": {
+                            "dirPath": "/home/lloyd/ficion/reel"
+                        },
+                        "user": {
+                            "dirPath": "/home/lloyd/ficion/user"
                         }
                     }
-                },
-                "github": {
-                    "token": "token"
                 }
             },
-            "lout": {}
-        },
-        "dev": {
-            "poop": {
-                "logPath": "/home/lloyd/ficion/log/tacklebox.poop"
-                "writeStreamOptions": {
-                    "flags": "a"
-                }
-            },
-            "good": {
-                "reporters": [
-                {
-                    "reporter": "good-console",
-                    "events": { "log": "*", "error": "*" }
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "response": "*" },
-                    "config": "/home/lloyd/ficion/log/tacklebox/response.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "ops": "*" },
-                    "config": "/home/lloyd/ficion/log/tacklebox/ops.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "log": "*" },
-                    "config": "/home/lloyd/ficion/log/tacklebox/log.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "error": "*" },
-                    "config": "/home/lloyd/ficion/log/tacklebox/error.log"
-                }]
-            },
-            "tacklebox": {
-                "job": {
-                    "dirPath": "/home/lloyd/ficion/job"
-                },
-                "reel": {
-                    "dirPath": "/home/lloyd/ficion/reel"
-                },
-                "user": {
-                    "dirPath": "/home/lloyd/ficion/user"
-                }
+            {
+                "plugin": "lout"
             }
-        },
-        "$default": {
-            "good": {
-                "reporters": [
-                {
-                    "reporter": "good-file",
-                    "events": { "response": "*" },
-                    "config": "/app/ficion/log/tacklebox/response.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "ops": "*" },
-                    "config": "/app/ficion/log/tacklebox/ops.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "log": "*" },
-                    "config": "/app/ficion/log/tacklebox/log.log"
-                },
-                {
-                    "reporter": "good-file",
-                    "events": { "error": "*" },
-                    "config": "/app/ficion/log/tacklebox/error.log"
-                }]
-            },
-            "tacklebox": {
-                "job": {
-                    "dirPath": "/app/ficion/job"
-                },
-                "reel": {
-                    "dirPath": "/app/ficion/reel"
-                },
-                "user": {
-                    "dirPath": "/app/ficion/user"
+        ]
+    },
+    "$default": {
+        "registrations": [
+            {
+                "plugin": {
+                    "register": "poop",
+                    "options": {
+                        "logPath": "/apps/ficion/log/tacklebox.poop",
+                        "writeStreamOptions": {
+                            "flags": "a"
+                        }
+                    }
                 }
+            },
+            {
+                "plugin": {
+                    "register": "good",
+                    "options": { 
+                        "opsInterval": 5000,
+                        "requestHeaders": true,
+                        "reporters": [
+                        {
+                            "reporter": "good-console",
+                            "events": { "log": "*", "error": "*" }
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "response": "*" },
+                            "config": "/apps/ficion/log/tacklebox/response.log"
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "ops": "*" },
+                            "config": "/apps/ficion/log/tacklebox/ops.log"
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "log": "*" },
+                            "config": "/apps/ficion/log/tacklebox/log.log"
+                        },
+                        {
+                            "reporter": "good-file",
+                            "events": { "error": "*" },
+                            "config": "/apps/ficion/log/tacklebox/error.log"
+                        }]
+                    }
+                }
+            },
+            {
+                "plugin": {
+                    "register": "tacklebox",
+                    "options": {
+                        "job": {
+                            "dirPath": "/apps/ficion/job",
+                            "queue": {
+                                "size": 2
+                            },
+                            "notify": {
+                                "plugins": {
+                                    "email": {
+                                        "options": {
+                                            "transporter": {
+                                                "service": "gmail",
+                                                "auth": {
+                                                    "user": "lloyd.benson@gmail.com",
+                                                    "pass": "password"
+                                                },
+                                                "from": "donotreply@ficion.net",
+                                                "subjectHeader": "[ficion]"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "github": {
+                            "token": "token"
+                        },
+                        "reel": {
+                            "dirPath": "/apps/ficion/reel"
+                        },
+                        "user": {
+                            "dirPath": "/apps/ficion/user"
+                        }
+                    }
+                }
+            },
+            {
+                "plugin": "lout"
             }
-        }
+        ]
     }
 }
