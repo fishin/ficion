@@ -36,7 +36,7 @@
     "good": "6.x.x",
     "good-file": "5.x.x",
     "good-console": "5.x.x",
-    "hapi": "12.x.x",
+    "hapi": "13.x.x",
     "hoek": "3.x.x",
     "inert": "3.x.x",
     "joi": "6.x.x",

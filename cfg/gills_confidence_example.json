@@ -87,11 +87,13 @@
                     "session": {
                         "cookie": {
                             "name": "ficion",
-                            "password": "password"
+                            // needs to be at least 32 this is the default in gills
+                            "password": "zeETGkgAFHux32898PD3EGbuZnyZqwjb"
                         },
                         "bell": {
                             "github": {
-                                "password": "password",
+                                // needs to be at least 32 this is the default in gills
+                                "password": "zeETGkgAFHux32898PD3EGbuZnyZqwjb",
                                 "clientId": "clientId",
                                 "clientSecret": "clientSecret"
                             }
