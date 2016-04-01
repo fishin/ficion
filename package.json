@@ -1,6 +1,6 @@
 {
   "name": "ficion",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fast Intelligent Continuous Integration On Node",
   "main": "index.js",
   "scripts": {
